@@ -1,0 +1,187 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    input{
+        width : 80%;
+        height : 80%;
+        border : none;
+    }
+    .button{
+        width : 7%;
+        height : 50px;
+        border-radius : 10px;
+        background-color : #05f221;
+    }
+
+    #green
+    {
+    background-color:#a1d17b;
+    }
+
+    #orange
+    {
+    background-color:#e08c4c;
+    }
+    #blue
+    {
+    background-color:#b2beeb;
+    }
+    #pink
+    {
+    background-color:#ebdab2;
+    }
+
+
+
+</style>
+
+<div align="left">
+    <h1><b>{{data|upper}}</b></h1>
+</div>
+
+<div align="left">
+<b><h1>
+{{entry_date}}
+</h1></b>
+</div>
+<br>
+
+<table style="border:1px solid black; ">
+<tr>
+    <th colspan="2">&nbsp;</th>
+    <th colspan="8">Quarantine</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="2">Pups</th>
+    <th colspan="1">&nbsp;</th>
+
+    <th colspan="8">Young</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="2">Experimental</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="2">Breeding</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="2">Pregnant</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="2">Weaning</th>
+</tr>
+<tr>
+    <th colspan="2">&nbsp;</th>
+    <th id="green" colspan="2">Newly Added</th>
+    <th id="orange" colspan="2">Dead</th>
+    <th id="blue" colspan="2">Experimental Issue</th>
+    <th id="pink" colspan="2">Breeding Issue</th>
+    <th colspan="1">&nbsp;</th>
+    <th id="green"colspan="1">Pups</th>
+    <th id="orange"colspan="1">Dead</th>
+    <th colspan="1">&nbsp;</th>
+    <th id="green" colspan="2">Newly added</th>
+    <th id="orange" colspan="2">Dead</th>
+    <th id="blue" colspan="2">Experimental Issue</th>
+    <th id="pink" colspan="2">Breeding Issue</th>
+    <th colspan="1">&nbsp;</th>
+    <th id="orange" colspan="2">Dead</th>
+    <th colspan="1">&nbsp;</th>
+    <th id="orange" colspan="2">Dead</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="2">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="2">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="2">Date</th>
+    <th id="green" colspan="1">M</th>
+    <th id="green" colspan="1">F</th>
+    <th id="orange" colspan="1">M</th>
+    <th id="orange" colspan="1">F</th>
+    <th id="blue" colspan="1">M</th>
+    <th id="blue" colspan="1">F</th>
+    <th id="pink" colspan="1">M</th>
+    <th id="pink" colspan="1">F</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+    <th id="green" colspan="1">M</th>
+    <th id="green" colspan="1">F</th>
+    <th id="orange" colspan="1">M</th>
+    <th id="orange" colspan="1">F</th>
+    <th id="blue" colspan="1">M</th>
+    <th id="blue" colspan="1">F</th>
+    <th id="pink" colspan="1">M</th>
+    <th id="pink" colspan="1">F</th>
+    <th colspan="1">&nbsp;</th>
+    <th id="orange" colspan="1">M</th>
+    <th id="orange" colspan="1">F</th>
+    <th colspan="1">&nbsp;</th>
+    <th id="orange" colspan="1">M</th>
+    <th id="orange" colspan="1">F</th>
+    <th colspan="1">&nbsp;</th>
+    <th id="green"  colspan="1">Added</th>
+    <th id="orange" colspan="1">Dead</th>
+    <th colspan="1">&nbsp;</th>
+    <th id="green" colspan="1">Mother</th>
+    <th id="orange" colspan="1">Dead</th>
+</tr>
+    <form id="form1" method="post">
+        {%csrf_token%}
+    <!--<td colspan="2">{{entry_date}}</td>-->
+    <!--{% for i in n %}-->
+    <!--{% if i in blank_columns %}-->
+    <!--<td colspan="1"><input width="10px" placeholder="-" disabled ></td>-->
+
+    <!--{% else %}-->
+    <!--<td colspan="1"><input width="10px" placeholder="0" ></td>-->
+    <!--{% endif %}-->
+
+    <!--{% endfor %}-->
+    <td colspan="2">{{entry_date}}</td>
+    <td id="green" colspan="1"><input id="green"  min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="quarantine_na_M" value=0></td>
+    <td id="green" colspan="1"><input id="green" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="quarantine_na_F" value=0></td>
+    <td id="orange" colspan="1"><input id="orange" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="quarantine_d_M" value=0></td>
+    <td id="orange" colspan="1"><input id="orange"  min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="quarantine_d_F" value=0></td>
+    <td id="blue" colspan="1"><input id="blue" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="quarantine_ei_M" value=0></td>
+    <td id="blue" colspan="1"><input id="blue" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="quarantine_ei_F" value=0></td>
+    <td id="pink" colspan="1"><input id="pink"  min="0" oninput="validity.valid||(value='');" type="number" form="form1"name="quarantine_bi_M" value=0></td>
+    <td id="pink" colspan="1"><input id="pink" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="quarantine_bi_F" value=0></td>
+    <td colspan="1">&nbsp;</td>
+    <td id="green" colspan="1"><input id="green" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="pups_pups" value=0></td>
+    <td id="orange" colspan="1"><input id="orange" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="pups_dead" value=0></td>
+    <td colspan="1">&nbsp;</td>
+    <td id="green" colspan="1"><input id="green"  min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="young_na_M" value=0></td>
+    <td id="green" colspan="1"><input id="green"  min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="young_na_F" value=0></td>
+    <td id="orange" colspan="1"><input id="orange" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="young_d_M" value=0></td>
+    <td id="orange" colspan="1"><input id="orange"  min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="young_d_F" value=0></td>
+    <td id="blue" colspan="1"><input id="blue"  min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="young_ei_M" value=0></td>
+    <td id="blue" colspan="1"><input id="blue"  min="0" oninput="validity.valid||(value='');" type="number" form="form1"name="young_ei_F" value=0></td>
+    <td id="pink" colspan="1"><input id="pink" min="0" oninput="validity.valid||(value='');" type="number" form="form1"name="young_bi_M" value=0></td>
+    <td id="pink" colspan="1"><input id="pink" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="young_bi_F" value=0></td>
+    <td colspan="1">&nbsp;</td>
+    <td id="orange" colspan="1"><input id="orange" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="exp_d_M" value=0></td>
+    <td id="orange" colspan="1"><input id="orange" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="exp_d_F" value=0></td>
+    <td colspan="1">&nbsp;</td>
+    <td id="orange" colspan="1"><input id="orange"  min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="bre_d_M" value=0></td>
+    <td id="orange" colspan="1"><input id="orange" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="bre_d_F" value=0></td>
+    <td colspan="1">&nbsp;</td>
+    <td id="green" colspan="1"><input id="green" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="preg_added" value=0></td>
+    <td id="orange" colspan="1"><input id="orange" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="preg_dead" value=0></td>
+    <td colspan="1">&nbsp;</td>
+    <td id="green" colspan="1"><input id="green" min="0" oninput="validity.valid||(value='');" type="number" form="form1" name="weaning_mother" value=0></td>
+    <td id="orange" colspan="1"><input id="orange" min="0" oninput="validity.valid||(value='');" type="number" form="form1" align="center" name="weaning_dead" value=0></td>
+</form>
+
+</table>
+<br>
+<input class = "button" form="form1" name="submit_button" type="submit"></input>
+
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+{% endif %}
+
+{% endblock content %}
+
+
+
